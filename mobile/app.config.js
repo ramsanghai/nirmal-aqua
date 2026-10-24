@@ -2,7 +2,9 @@ const fs = require('fs');
 
 // google-services.json (Firebase Android app) is needed for FCM push in a real build.
 // It is added at build time; the config stays valid without it so `expo start` works.
-const hasGoogleServices = fs.existsSync('./google-services.json');
+// On EAS the file is provided through the GOOGLE_SERVICES_JSON file environment variable;
+// locally we fall back to ./google-services.json when it exists.
+const googleServicesFile = process.env.GOOGLE_SERVICES_JSON || (fs.existsSync('./google-services.json') ? './google-services.json' : undefined);
 
 module.exports = () => ({
   name: 'Nirmal Aqua',
@@ -17,12 +19,12 @@ module.exports = () => ({
     package: 'com.nirmalaqua.app',
     adaptiveIcon: { backgroundColor: '#0F4C4A', foregroundImage: './assets/android-icon-foreground.png' },
     permissions: ['ACCESS_FINE_LOCATION', 'ACCESS_COARSE_LOCATION', 'POST_NOTIFICATIONS'],
-    ...(hasGoogleServices ? { googleServicesFile: './google-services.json' } : {}),
+    ...(googleServicesFile ? { googleServicesFile } : {}),
   },
   plugins: [
     ['expo-notifications', { color: '#0F4C4A', defaultChannel: 'orders' }],
     ['expo-location', { locationWhenInUsePermission: 'Nirmal Aqua uses your location to pin the delivery address.' }],
     'expo-font',
   ],
-  extra: { eas: { projectId: process.env.EAS_PROJECT_ID } },
+  extra: { eas: { projectId: '4de80b2c-77cc-4b86-90b2-cc42903fdbd0' } },
 });

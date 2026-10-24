@@ -7,7 +7,7 @@ import { useAuth } from '../auth';
 import { Mode, useTheme } from '../theme';
 import { Icon } from '../icons';
 import { Button, Card, Chip, Rule, T } from '../ui';
-import { registerForPush } from '../push';
+import { isExpoGo, registerForPush } from '../push';
 import { inr } from '../format';
 
 export function AccountScreen() {
@@ -20,6 +20,7 @@ export function AccountScreen() {
   const msg = `Get clean water at your door with Nirmal Aqua. Use my code ${profile.referralCode} when you sign up and we both get ₹100 off.`;
 
   const enablePush = async () => {
+    if (isExpoGo) return Alert.alert('Notifications', 'Push notifications work in the installed app (APK), not inside Expo Go.');
     const t = await registerForPush();
     if (!t) return Alert.alert('Notifications', 'Could not enable notifications. Allow them in system settings (a real device build is required).');
     await update({ fcmToken: t });

@@ -5,7 +5,6 @@ import { createNavigationContainerRef, DefaultTheme, NavigationContainer } from 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
-import * as Notifications from 'expo-notifications';
 import { useFonts } from 'expo-font';
 import { Fraunces_600SemiBold, Fraunces_600SemiBold_Italic } from '@expo-google-fonts/fraunces';
 import { Manrope_500Medium, Manrope_600SemiBold, Manrope_700Bold, Manrope_800ExtraBold } from '@expo-google-fonts/manrope';
@@ -14,7 +13,7 @@ import { AuthProvider, useAuth } from './auth';
 import { DataProvider } from './data';
 import { CartProvider, useCart } from './cart';
 import { ThemeProvider, useTheme } from './theme';
-import { registerForPush } from './push';
+import { initNotifications, onNotificationTap, registerForPush } from './push';
 import { DropMark, Icon, IconName } from './icons';
 import { Button, T } from './ui';
 import { AuthScreen } from './screens/Auth';
@@ -89,13 +88,12 @@ function Gate() {
     registerForPush().then((t) => { if (t && t !== profile.fcmToken) update({ fcmToken: t }); });
   }, [user?.uid, !!profile]);
   useEffect(() => {
-    const sub = Notifications.addNotificationResponseReceivedListener((r) => {
-      const d: any = r.notification.request.content.data || {};
+    initNotifications();
+    return onNotificationTap((d) => {
       if (!navRef.isReady()) return;
       if (String(d.kind || '').startsWith('service')) navRef.navigate('Tabs', { screen: 'Service' });
       else navRef.navigate('Tabs', { screen: 'Orders' });
     });
-    return () => sub.remove();
   }, []);
 
   const theme = { ...DefaultTheme, colors: { ...DefaultTheme.colors, background: c.bg, card: c.card, text: c.ink, border: c.line, primary: c.primary } };
