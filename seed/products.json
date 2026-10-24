@@ -1,0 +1,1354 @@
+[
+  {
+    "id": "ro-uv-wall-10l",
+    "name": "Nirmal Pure RO+UV Wall Mount 10 L",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "Seven-stage RO+UV+TDS control purifier for borewell and municipal water. Silent pump and a 10 litre tank.",
+    "specs": [
+      "10 L storage",
+      "15 L/hr flow",
+      "RO + UV + UF",
+      "Wall mount"
+    ],
+    "mrp": 17990,
+    "price": 13490,
+    "wholesalePrice": 9980,
+    "minBulkQty": 3,
+    "stock": 12,
+    "rating": 4,
+    "reviews": 24,
+    "featured": true,
+    "image": "https://YOUR-ADMIN.vercel.app/products/ro-uv-wall-10l.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/ro-uv-wall-10l.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "ro-uf-tds-12l",
+    "name": "Nirmal Pure RO+UF 12 L with TDS Control",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "Bigger tank for larger families. Tap-water TDS up to 2000 ppm handled with automatic mineral balance.",
+    "specs": [
+      "12 L storage",
+      "18 L/hr flow",
+      "RO + UF",
+      "Smart LED"
+    ],
+    "mrp": 19990,
+    "price": 14990,
+    "wholesalePrice": 11090,
+    "minBulkQty": 3,
+    "stock": 19,
+    "rating": 4.6,
+    "reviews": 77,
+    "featured": true,
+    "image": "https://YOUR-ADMIN.vercel.app/products/ro-uf-tds-12l.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/ro-uf-tds-12l.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "slim-ro-black-8l",
+    "name": "Nirmal Slim RO 8 L Matte Black",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "Slim 28 cm profile that fits a narrow kitchen wall. Matte finish hides fingerprints.",
+    "specs": [
+      "8 L storage",
+      "12 L/hr flow",
+      "RO + UV",
+      "Slim body"
+    ],
+    "mrp": 15990,
+    "price": 11990,
+    "wholesalePrice": 8870,
+    "minBulkQty": 3,
+    "stock": 26,
+    "rating": 4.3,
+    "reviews": 130,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/slim-ro-black-8l.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/slim-ro-black-8l.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "copper-ro-9l",
+    "name": "Nirmal Copper+ RO 9 L",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "Copper-infused storage with mineralised output. Auto-flush keeps the membrane fresh.",
+    "specs": [
+      "9 L storage",
+      "14 L/hr flow",
+      "RO + Copper",
+      "Auto flush"
+    ],
+    "mrp": 18490,
+    "price": 13990,
+    "wholesalePrice": 10350,
+    "minBulkQty": 3,
+    "stock": 33,
+    "rating": 4.1,
+    "reviews": 183,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/copper-ro-9l.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/copper-ro-9l.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "alkaline-ro-10l",
+    "name": "Nirmal Alkaline RO 10 L Silver",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "Raises pH to 8.5 and adds calcium and magnesium after RO. Suited to hard water.",
+    "specs": [
+      "10 L storage",
+      "pH 8.5 boost",
+      "RO + Alkaline",
+      "Steel finish"
+    ],
+    "mrp": 20990,
+    "price": 15990,
+    "wholesalePrice": 11830,
+    "minBulkQty": 3,
+    "stock": 40,
+    "rating": 4.7,
+    "reviews": 236,
+    "featured": true,
+    "image": "https://YOUR-ADMIN.vercel.app/products/alkaline-ro-10l.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/alkaline-ro-10l.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "under-sink-ro-75",
+    "name": "Nirmal Under-Sink RO 75 GPD",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "Fits inside the sink cabinet. Chrome faucet for the counter, 12 L pressurised tank.",
+    "specs": [
+      "75 GPD membrane",
+      "12 L pressure tank",
+      "Under sink",
+      "Chrome tap"
+    ],
+    "mrp": 14990,
+    "price": 10990,
+    "wholesalePrice": 8130,
+    "minBulkQty": 3,
+    "stock": 47,
+    "rating": 4.4,
+    "reviews": 289,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/under-sink-ro-75.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/under-sink-ro-75.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "under-sink-ro-uv-100",
+    "name": "Nirmal Under-Sink RO+UV 100 GPD",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "Heavier membrane for faster fill and a UV stage for bacteria. For homes with 4+ members.",
+    "specs": [
+      "100 GPD membrane",
+      "UV stage",
+      "Under sink",
+      "Auto shutoff"
+    ],
+    "mrp": 17490,
+    "price": 12990,
+    "wholesalePrice": 9610,
+    "minBulkQty": 3,
+    "stock": 16,
+    "rating": 4.2,
+    "reviews": 342,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/under-sink-ro-uv-100.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/under-sink-ro-uv-100.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "gravity-uf-18l",
+    "name": "Nirmal Gravity UF 18 L (No Electricity)",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "Works without power or pressure. Ideal for low-TDS municipal supply.",
+    "specs": [
+      "18 L capacity",
+      "No electricity",
+      "UF + carbon",
+      "Food-grade ABS"
+    ],
+    "mrp": 5990,
+    "price": 3990,
+    "wholesalePrice": 2950,
+    "minBulkQty": 3,
+    "stock": 23,
+    "rating": 4.8,
+    "reviews": 395,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/gravity-uf-18l.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/gravity-uf-18l.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "gravity-steel-22l",
+    "name": "Nirmal Gravity Steel 22 L",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "Stainless steel body with a see-through top tank. Keeps water cool through summer.",
+    "specs": [
+      "22 L capacity",
+      "SS 304 body",
+      "UF + silver carbon",
+      "No power"
+    ],
+    "mrp": 7990,
+    "price": 5490,
+    "wholesalePrice": 4060,
+    "minBulkQty": 3,
+    "stock": 30,
+    "rating": 4.5,
+    "reviews": 448,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/gravity-steel-22l.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/gravity-steel-22l.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "countertop-uv-6l",
+    "name": "Nirmal Countertop UV 6 L",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "Sits on the counter with no installation. UV kills 99.99% bacteria in the 6 L jug.",
+    "specs": [
+      "6 L storage",
+      "UV-C stage",
+      "Counter top",
+      "No installation"
+    ],
+    "mrp": 8990,
+    "price": 6490,
+    "wholesalePrice": 4800,
+    "minBulkQty": 3,
+    "stock": 37,
+    "rating": 4.3,
+    "reviews": 501,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/countertop-uv-6l.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/countertop-uv-6l.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "commercial-ro-25",
+    "name": "Nirmal Commercial RO 25 LPH",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "For shops, clinics and small offices. SS frame, pressure gauges and a 4-membrane set.",
+    "specs": [
+      "25 L/hr output",
+      "SS frame",
+      "4 membranes",
+      "Gauges fitted"
+    ],
+    "mrp": 38990,
+    "price": 29990,
+    "wholesalePrice": 22190,
+    "minBulkQty": 3,
+    "stock": 44,
+    "rating": 4,
+    "reviews": 74,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/commercial-ro-25.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/commercial-ro-25.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "commercial-ro-50",
+    "name": "Nirmal Commercial RO 50 LPH",
+    "brand": "Nirmal",
+    "category": "Purifiers",
+    "description": "High output plant for restaurants and small institutions. Auto-flush and low-pressure cut-off.",
+    "specs": [
+      "50 L/hr output",
+      "SS frame",
+      "Auto flush",
+      "LP cut-off"
+    ],
+    "mrp": 58990,
+    "price": 44990,
+    "wholesalePrice": 33290,
+    "minBulkQty": 3,
+    "stock": 13,
+    "rating": 4.6,
+    "reviews": 127,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/commercial-ro-50.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/commercial-ro-50.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "floor-hot-cold-white",
+    "name": "Nirmal Floor Hot & Cold Dispenser",
+    "brand": "Nirmal",
+    "category": "Dispensers",
+    "description": "Top-load dispenser with a lower cabinet. Child-safe hot tap, compressor cooling.",
+    "specs": [
+      "Hot 90°C",
+      "Cold 8°C",
+      "20 L bottle",
+      "Child lock"
+    ],
+    "mrp": 13990,
+    "price": 9990,
+    "wholesalePrice": 7390,
+    "minBulkQty": 3,
+    "stock": 20,
+    "rating": 4.3,
+    "reviews": 180,
+    "featured": true,
+    "image": "https://YOUR-ADMIN.vercel.app/products/floor-hot-cold-white.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/floor-hot-cold-white.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "floor-hot-normal-cold-black",
+    "name": "Nirmal Floor Hot, Normal & Cold (Black)",
+    "brand": "Nirmal",
+    "category": "Dispensers",
+    "description": "Three temperatures from one unit. Stainless steel tanks and a drip tray with level float.",
+    "specs": [
+      "3 temperature taps",
+      "SS tanks",
+      "20 L bottle",
+      "Compressor"
+    ],
+    "mrp": 16990,
+    "price": 12490,
+    "wholesalePrice": 9240,
+    "minBulkQty": 3,
+    "stock": 27,
+    "rating": 4.1,
+    "reviews": 233,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/floor-hot-normal-cold-black.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/floor-hot-normal-cold-black.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "bottom-load-silver",
+    "name": "Nirmal Bottom-Load Hot & Cold Silver",
+    "brand": "Nirmal",
+    "category": "Dispensers",
+    "description": "No lifting heavy bottles — the bottle sits in the base cabinet and a pump lifts the water.",
+    "specs": [
+      "Bottom loading",
+      "Hot & Cold",
+      "LED level",
+      "Child lock"
+    ],
+    "mrp": 21990,
+    "price": 16490,
+    "wholesalePrice": 12200,
+    "minBulkQty": 3,
+    "stock": 34,
+    "rating": 4.7,
+    "reviews": 286,
+    "featured": true,
+    "image": "https://YOUR-ADMIN.vercel.app/products/bottom-load-silver.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/bottom-load-silver.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "bottom-load-cabinet-white",
+    "name": "Nirmal Bottom-Load with Fridge Cabinet",
+    "brand": "Nirmal",
+    "category": "Dispensers",
+    "description": "Dispenser with a 20 L storage cabinet for fruit and drinks. Stays quiet under 42 dB.",
+    "specs": [
+      "Bottom loading",
+      "Fridge cabinet",
+      "Hot & Cold",
+      "42 dB"
+    ],
+    "mrp": 25990,
+    "price": 19490,
+    "wholesalePrice": 14420,
+    "minBulkQty": 3,
+    "stock": 41,
+    "rating": 4.4,
+    "reviews": 339,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/bottom-load-cabinet-white.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/bottom-load-cabinet-white.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "table-hot-cold",
+    "name": "Nirmal Tabletop Hot & Cold",
+    "brand": "Nirmal",
+    "category": "Dispensers",
+    "description": "Compact dispenser for desks and small kitchens. Electronic cooling, no compressor noise.",
+    "specs": [
+      "Hot 90°C",
+      "Cold 10°C",
+      "Electronic cooling",
+      "20 L bottle"
+    ],
+    "mrp": 8990,
+    "price": 6490,
+    "wholesalePrice": 4800,
+    "minBulkQty": 3,
+    "stock": 48,
+    "rating": 4.2,
+    "reviews": 392,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/table-hot-cold.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/table-hot-cold.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "table-normal-cold",
+    "name": "Nirmal Tabletop Normal & Cold",
+    "brand": "Nirmal",
+    "category": "Dispensers",
+    "description": "Normal and chilled water for offices. Leakproof bottle seat and removable tray.",
+    "specs": [
+      "Normal & cold",
+      "Electronic cooling",
+      "20 L bottle",
+      "Removable tray"
+    ],
+    "mrp": 7490,
+    "price": 5290,
+    "wholesalePrice": 3910,
+    "minBulkQty": 3,
+    "stock": 17,
+    "rating": 4.8,
+    "reviews": 445,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/table-normal-cold.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/table-normal-cold.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "electric-bottle-pump-20l",
+    "name": "Nirmal Rechargeable 20 L Bottle Pump",
+    "brand": "Nirmal",
+    "category": "Dispensers",
+    "description": "USB-rechargeable pump that fits standard 20 L cans. One charge dispenses about 40 bottles.",
+    "specs": [
+      "USB charge",
+      "Fits 20 L cans",
+      "40 cans/charge",
+      "Food grade"
+    ],
+    "mrp": 1490,
+    "price": 990,
+    "wholesalePrice": 730,
+    "minBulkQty": 3,
+    "stock": 24,
+    "rating": 4.5,
+    "reviews": 498,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/electric-bottle-pump-20l.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/electric-bottle-pump-20l.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "touchless-floor-dispenser",
+    "name": "Nirmal Touchless Hot & Cold Dispenser",
+    "brand": "Nirmal",
+    "category": "Dispensers",
+    "description": "Infrared sensor dispenses a set quantity without touching the tap. Good for clinics and offices.",
+    "specs": [
+      "IR sensor",
+      "Set quantity",
+      "Hot & Cold",
+      "SS tank"
+    ],
+    "mrp": 22990,
+    "price": 17490,
+    "wholesalePrice": 12940,
+    "minBulkQty": 3,
+    "stock": 31,
+    "rating": 4.3,
+    "reviews": 71,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/touchless-floor-dispenser.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/touchless-floor-dispenser.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "monoblock-05hp",
+    "name": "Nirmal Monoblock Pump 0.5 HP",
+    "brand": "Nirmal",
+    "category": "Pumps",
+    "description": "Domestic monoblock pump for overhead tank filling. Copper winding, ISI mark.",
+    "specs": [
+      "0.5 HP",
+      "28 m head",
+      "Copper winding",
+      "1 yr warranty"
+    ],
+    "mrp": 4990,
+    "price": 3590,
+    "wholesalePrice": 2660,
+    "minBulkQty": 3,
+    "stock": 38,
+    "rating": 4,
+    "reviews": 124,
+    "featured": true,
+    "image": "https://YOUR-ADMIN.vercel.app/products/monoblock-05hp.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/monoblock-05hp.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "monoblock-1hp",
+    "name": "Nirmal Monoblock Pump 1 HP",
+    "brand": "Nirmal",
+    "category": "Pumps",
+    "description": "More head for 2–3 floor houses. Thermal overload protection built in.",
+    "specs": [
+      "1 HP",
+      "42 m head",
+      "Thermal cut-out",
+      "1 yr warranty"
+    ],
+    "mrp": 6990,
+    "price": 4990,
+    "wholesalePrice": 3690,
+    "minBulkQty": 3,
+    "stock": 45,
+    "rating": 4.6,
+    "reviews": 177,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/monoblock-1hp.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/monoblock-1hp.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "self-priming-1hp",
+    "name": "Nirmal Self-Priming Pump 1 HP",
+    "brand": "Nirmal",
+    "category": "Pumps",
+    "description": "Primes itself from 7 m suction depth. Cast-iron casing for long life.",
+    "specs": [
+      "1 HP",
+      "7 m suction",
+      "Cast-iron body",
+      "Self priming"
+    ],
+    "mrp": 7990,
+    "price": 5790,
+    "wholesalePrice": 4280,
+    "minBulkQty": 3,
+    "stock": 14,
+    "rating": 4.3,
+    "reviews": 230,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/self-priming-1hp.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/self-priming-1hp.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "jet-pump-1hp",
+    "name": "Nirmal Shallow Well Jet Pump 1 HP",
+    "brand": "Nirmal",
+    "category": "Pumps",
+    "description": "Jet pump for open wells up to 25 m. Strong suction for gardens and farm use.",
+    "specs": [
+      "1 HP",
+      "25 m depth",
+      "Jet assembly",
+      "Brass impeller"
+    ],
+    "mrp": 9490,
+    "price": 6990,
+    "wholesalePrice": 5170,
+    "minBulkQty": 3,
+    "stock": 21,
+    "rating": 4.1,
+    "reviews": 283,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/jet-pump-1hp.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/jet-pump-1hp.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "submersible-borewell-1hp",
+    "name": "Nirmal Borewell Submersible 1 HP",
+    "brand": "Nirmal",
+    "category": "Pumps",
+    "description": "For 4″ borewells. Stainless steel body with strainer and a 20 m cable included.",
+    "specs": [
+      "1 HP",
+      "4″ borewell",
+      "SS body",
+      "20 m cable"
+    ],
+    "mrp": 14990,
+    "price": 10990,
+    "wholesalePrice": 8130,
+    "minBulkQty": 3,
+    "stock": 28,
+    "rating": 4.7,
+    "reviews": 336,
+    "featured": true,
+    "image": "https://YOUR-ADMIN.vercel.app/products/submersible-borewell-1hp.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/submersible-borewell-1hp.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "submersible-borewell-15hp",
+    "name": "Nirmal Borewell Submersible 1.5 HP",
+    "brand": "Nirmal",
+    "category": "Pumps",
+    "description": "Higher head borewell pump with dry-run protection. Fits 4″ and 6″ bore.",
+    "specs": [
+      "1.5 HP",
+      "85 m head",
+      "Dry-run guard",
+      "SS body"
+    ],
+    "mrp": 18990,
+    "price": 13990,
+    "wholesalePrice": 10350,
+    "minBulkQty": 3,
+    "stock": 35,
+    "rating": 4.4,
+    "reviews": 389,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/submersible-borewell-15hp.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/submersible-borewell-15hp.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "booster-pump-05hp",
+    "name": "Nirmal Pressure Booster Pump 0.5 HP",
+    "brand": "Nirmal",
+    "category": "Pumps",
+    "description": "Auto on/off with a flow switch. Lifts shower and tap pressure on upper floors.",
+    "specs": [
+      "0.5 HP",
+      "Auto flow switch",
+      "2.5 bar boost",
+      "Quiet motor"
+    ],
+    "mrp": 8490,
+    "price": 6190,
+    "wholesalePrice": 4580,
+    "minBulkQty": 3,
+    "stock": 42,
+    "rating": 4.2,
+    "reviews": 442,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/booster-pump-05hp.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/booster-pump-05hp.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "openwell-submersible-05hp",
+    "name": "Nirmal Openwell Submersible 0.5 HP",
+    "brand": "Nirmal",
+    "category": "Pumps",
+    "description": "Compact openwell and sump pump. Float cable and corrosion-proof impeller.",
+    "specs": [
+      "0.5 HP",
+      "Openwell",
+      "Float option",
+      "Noryl impeller"
+    ],
+    "mrp": 8990,
+    "price": 6590,
+    "wholesalePrice": 4880,
+    "minBulkQty": 3,
+    "stock": 49,
+    "rating": 4.8,
+    "reviews": 495,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/openwell-submersible-05hp.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/openwell-submersible-05hp.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "ceramic-candle-10",
+    "name": "Ceramic Candle Filter 10″",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "Removes cysts and silt from gravity purifiers. Washable and reusable.",
+    "specs": [
+      "10 inch",
+      "0.3 micron",
+      "Washable",
+      "Fits gravity units"
+    ],
+    "mrp": 590,
+    "price": 390,
+    "wholesalePrice": 290,
+    "minBulkQty": 10,
+    "stock": 18,
+    "rating": 4.5,
+    "reviews": 68,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/ceramic-candle-10.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/ceramic-candle-10.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "sediment-spun-10",
+    "name": "Sediment Spun Filter 10″ (5 micron)",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "First-stage spun polypropylene cartridge. Catches sand, rust and silt.",
+    "specs": [
+      "10 inch",
+      "5 micron",
+      "PP spun",
+      "Stage 1"
+    ],
+    "mrp": 190,
+    "price": 120,
+    "wholesalePrice": 90,
+    "minBulkQty": 10,
+    "stock": 25,
+    "rating": 4.3,
+    "reviews": 121,
+    "featured": true,
+    "image": "https://YOUR-ADMIN.vercel.app/products/sediment-spun-10.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/sediment-spun-10.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "carbon-block-10",
+    "name": "Activated Carbon Block 10″",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "Removes chlorine, odour and organics. Pressed carbon block with end caps.",
+    "specs": [
+      "10 inch",
+      "CTO block",
+      "Removes chlorine",
+      "Stage 2"
+    ],
+    "mrp": 340,
+    "price": 230,
+    "wholesalePrice": 170,
+    "minBulkQty": 10,
+    "stock": 32,
+    "rating": 4,
+    "reviews": 174,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/carbon-block-10.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/carbon-block-10.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "ro-membrane-75",
+    "name": "RO Membrane 75 GPD",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "Thin-film composite membrane for domestic RO. 98% TDS rejection.",
+    "specs": [
+      "75 GPD",
+      "1812 size",
+      "98% rejection",
+      "TFC"
+    ],
+    "mrp": 1190,
+    "price": 790,
+    "wholesalePrice": 580,
+    "minBulkQty": 10,
+    "stock": 39,
+    "rating": 4.6,
+    "reviews": 227,
+    "featured": true,
+    "image": "https://YOUR-ADMIN.vercel.app/products/ro-membrane-75.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/ro-membrane-75.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "ro-membrane-100",
+    "name": "RO Membrane 100 GPD",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "Higher flow membrane for tank-less and under-sink systems.",
+    "specs": [
+      "100 GPD",
+      "1812 size",
+      "98% rejection",
+      "TFC"
+    ],
+    "mrp": 1390,
+    "price": 950,
+    "wholesalePrice": 700,
+    "minBulkQty": 10,
+    "stock": 46,
+    "rating": 4.3,
+    "reviews": 280,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/ro-membrane-100.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/ro-membrane-100.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "uv-lamp-11w",
+    "name": "UV Lamp 11 W",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "Replacement UV-C lamp for wall-mount purifiers. Change every 12 months.",
+    "specs": [
+      "11 W",
+      "UV-C 254 nm",
+      "4-pin base",
+      "12 month life"
+    ],
+    "mrp": 790,
+    "price": 520,
+    "wholesalePrice": 380,
+    "minBulkQty": 10,
+    "stock": 15,
+    "rating": 4.1,
+    "reviews": 333,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/uv-lamp-11w.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/uv-lamp-11w.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "uv-lamp-6w",
+    "name": "UV Lamp 6 W",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "Replacement lamp for countertop and compact UV purifiers.",
+    "specs": [
+      "6 W",
+      "UV-C 254 nm",
+      "2-pin base",
+      "9 month life"
+    ],
+    "mrp": 540,
+    "price": 360,
+    "wholesalePrice": 270,
+    "minBulkQty": 10,
+    "stock": 22,
+    "rating": 4.7,
+    "reviews": 386,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/uv-lamp-6w.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/uv-lamp-6w.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "inline-post-carbon",
+    "name": "Inline Post-Carbon Filter",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "Polishes taste after the RO stage. Quick-connect ports for ¼″ tubing.",
+    "specs": [
+      "¼″ ports",
+      "Coconut carbon",
+      "Taste polish",
+      "Final stage"
+    ],
+    "mrp": 260,
+    "price": 170,
+    "wholesalePrice": 130,
+    "minBulkQty": 10,
+    "stock": 29,
+    "rating": 4.4,
+    "reviews": 439,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/inline-post-carbon.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/inline-post-carbon.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "alkaline-mineral-cartridge",
+    "name": "Alkaline Mineral Cartridge",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "Restores minerals and lifts pH after RO. Adds a mild natural taste.",
+    "specs": [
+      "¼″ ports",
+      "pH 8–9",
+      "Ca & Mg",
+      "Final stage"
+    ],
+    "mrp": 490,
+    "price": 330,
+    "wholesalePrice": 240,
+    "minBulkQty": 10,
+    "stock": 36,
+    "rating": 4.2,
+    "reviews": 492,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/alkaline-mineral-cartridge.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/alkaline-mineral-cartridge.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "big-blue-housing-20",
+    "name": "Big Blue Filter Housing 20″",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "Whole-house pre-filter housing with pressure-relief button. Takes 20″ cartridges.",
+    "specs": [
+      "20 inch",
+      "1″ ports",
+      "Pressure relief",
+      "6 bar rated"
+    ],
+    "mrp": 3290,
+    "price": 2390,
+    "wholesalePrice": 1770,
+    "minBulkQty": 10,
+    "stock": 43,
+    "rating": 4.8,
+    "reviews": 65,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/big-blue-housing-20.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/big-blue-housing-20.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "spin-down-sediment-10",
+    "name": "Spin-Down Sediment Filter 10″",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "Transparent housing with a washable cartridge. See when it needs cleaning.",
+    "specs": [
+      "10 inch",
+      "Clear bowl",
+      "Washable",
+      "¾″ ports"
+    ],
+    "mrp": 1590,
+    "price": 1090,
+    "wholesalePrice": 810,
+    "minBulkQty": 10,
+    "stock": 12,
+    "rating": 4.5,
+    "reviews": 118,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/spin-down-sediment-10.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/spin-down-sediment-10.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "pp-pleated-sediment-10",
+    "name": "Pleated Sediment Cartridge 10″",
+    "brand": "Nirmal",
+    "category": "Filters",
+    "description": "Washable pleated cartridge with larger surface area for hard-water use.",
+    "specs": [
+      "10 inch",
+      "10 micron",
+      "Washable",
+      "Stage 1"
+    ],
+    "mrp": 420,
+    "price": 280,
+    "wholesalePrice": 210,
+    "minBulkQty": 10,
+    "stock": 19,
+    "rating": 4.3,
+    "reviews": 171,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/pp-pleated-sediment-10.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/pp-pleated-sediment-10.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "solenoid-valve-24v",
+    "name": "Solenoid Valve 24 V",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Controls inlet water in RO systems. Push-fit ¼″ ports, copper coil.",
+    "specs": [
+      "24 V DC",
+      "¼″ ports",
+      "Copper coil",
+      "Normally closed"
+    ],
+    "mrp": 340,
+    "price": 220,
+    "wholesalePrice": 160,
+    "minBulkQty": 10,
+    "stock": 26,
+    "rating": 4,
+    "reviews": 224,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/solenoid-valve-24v.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/solenoid-valve-24v.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "smps-24v-1-5a",
+    "name": "SMPS Adapter 24 V 1.5 A",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Power adapter for RO pump and solenoid. Short-circuit and over-load cut-out.",
+    "specs": [
+      "24 V / 1.5 A",
+      "100–240 V AC",
+      "Short-circuit guard",
+      "DC jack"
+    ],
+    "mrp": 450,
+    "price": 310,
+    "wholesalePrice": 230,
+    "minBulkQty": 10,
+    "stock": 33,
+    "rating": 4.6,
+    "reviews": 277,
+    "featured": true,
+    "image": "https://YOUR-ADMIN.vercel.app/products/smps-24v-1-5a.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/smps-24v-1-5a.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "ro-booster-pump-100",
+    "name": "RO Booster Pump 100 GPD",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Diaphragm pump head for domestic RO. Runs quiet at 70 psi.",
+    "specs": [
+      "100 GPD",
+      "24 V DC",
+      "70 psi",
+      "Diaphragm"
+    ],
+    "mrp": 1190,
+    "price": 820,
+    "wholesalePrice": 610,
+    "minBulkQty": 10,
+    "stock": 40,
+    "rating": 4.3,
+    "reviews": 330,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/ro-booster-pump-100.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/ro-booster-pump-100.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "chrome-ro-faucet",
+    "name": "Chrome RO Faucet",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Gooseneck faucet for under-sink RO. Ceramic cartridge and ¼″ push-fit.",
+    "specs": [
+      "Chrome plated",
+      "Ceramic valve",
+      "¼″ push-fit",
+      "Under sink"
+    ],
+    "mrp": 330,
+    "price": 220,
+    "wholesalePrice": 160,
+    "minBulkQty": 10,
+    "stock": 47,
+    "rating": 4.1,
+    "reviews": 383,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/chrome-ro-faucet.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/chrome-ro-faucet.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "float-shutoff-valve",
+    "name": "Float Shut-off Valve",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Stops the inlet when the tank is full. Fits ¼″ and ⅜″ inlet lines.",
+    "specs": [
+      "¼″ inlet",
+      "Float arm",
+      "Auto shut-off",
+      "ABS body"
+    ],
+    "mrp": 260,
+    "price": 170,
+    "wholesalePrice": 130,
+    "minBulkQty": 10,
+    "stock": 16,
+    "rating": 4.7,
+    "reviews": 436,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/float-shutoff-valve.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/float-shutoff-valve.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "pressure-tank-12l",
+    "name": "Pressure Tank 12 L",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Pressurised storage tank for under-sink and tank-less RO systems.",
+    "specs": [
+      "12 L",
+      "Air pre-charge",
+      "¼″ port",
+      "Steel shell"
+    ],
+    "mrp": 1450,
+    "price": 990,
+    "wholesalePrice": 730,
+    "minBulkQty": 10,
+    "stock": 23,
+    "rating": 4.4,
+    "reviews": 489,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/pressure-tank-12l.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/pressure-tank-12l.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "ro-tubing-quarter-10m",
+    "name": "RO Tubing ¼″ (10 m Roll)",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Food-grade LLDPE tubing for all RO connections. Blue, 10 metre roll.",
+    "specs": [
+      "¼ inch",
+      "10 m",
+      "Food grade",
+      "Blue"
+    ],
+    "mrp": 280,
+    "price": 190,
+    "wholesalePrice": 140,
+    "minBulkQty": 10,
+    "stock": 30,
+    "rating": 4.2,
+    "reviews": 62,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/ro-tubing-quarter-10m.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/ro-tubing-quarter-10m.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "push-fit-fittings-set",
+    "name": "Push-Fit Fittings Assortment",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Elbows, tees and straight connectors in ¼″. Twenty pieces with a spare O-ring set.",
+    "specs": [
+      "¼ inch",
+      "20 pieces",
+      "Elbow · Tee · Straight",
+      "Acetal"
+    ],
+    "mrp": 360,
+    "price": 240,
+    "wholesalePrice": 180,
+    "minBulkQty": 10,
+    "stock": 37,
+    "rating": 4.8,
+    "reviews": 115,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/push-fit-fittings-set.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/push-fit-fittings-set.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "tds-meter-digital",
+    "name": "Digital TDS Meter",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Pocket TDS tester with a 0–9990 ppm range. Hold button and auto-off.",
+    "specs": [
+      "0–9990 ppm",
+      "±2% accuracy",
+      "Hold button",
+      "Auto off"
+    ],
+    "mrp": 399,
+    "price": 270,
+    "wholesalePrice": 200,
+    "minBulkQty": 10,
+    "stock": 44,
+    "rating": 4.5,
+    "reviews": 168,
+    "featured": true,
+    "image": "https://YOUR-ADMIN.vercel.app/products/tds-meter-digital.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/tds-meter-digital.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "pressure-gauge-100psi",
+    "name": "Pressure Gauge 0–100 psi",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Fit after the pump to read RO line pressure. Brass ¼″ bottom stem.",
+    "specs": [
+      "0–100 psi",
+      "Brass stem",
+      "¼″ thread",
+      "63 mm dial"
+    ],
+    "mrp": 450,
+    "price": 310,
+    "wholesalePrice": 230,
+    "minBulkQty": 10,
+    "stock": 13,
+    "rating": 4.3,
+    "reviews": 221,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/pressure-gauge-100psi.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/pressure-gauge-100psi.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "flow-restrictor-300",
+    "name": "Flow Restrictor 300 ml",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Sets the reject water ratio. Common sizes 300, 400 and 500 ml/min sold as a set.",
+    "specs": [
+      "300 ml/min",
+      "Push-fit",
+      "Set of 3",
+      "Acetal"
+    ],
+    "mrp": 140,
+    "price": 90,
+    "wholesalePrice": 70,
+    "minBulkQty": 10,
+    "stock": 20,
+    "rating": 4,
+    "reviews": 274,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/flow-restrictor-300.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/flow-restrictor-300.jpg"
+    ],
+    "createdAt": 1792827557037
+  },
+  {
+    "id": "ss-uv-chamber",
+    "name": "SS UV Chamber",
+    "brand": "Nirmal",
+    "category": "Spares",
+    "description": "Stainless steel 316 UV chamber with quartz sleeve. Fits 11 W lamps.",
+    "specs": [
+      "SS 316",
+      "Quartz sleeve",
+      "11 W lamp",
+      "½″ ports"
+    ],
+    "mrp": 1290,
+    "price": 890,
+    "wholesalePrice": 660,
+    "minBulkQty": 10,
+    "stock": 27,
+    "rating": 4.6,
+    "reviews": 327,
+    "featured": false,
+    "image": "https://YOUR-ADMIN.vercel.app/products/ss-uv-chamber.jpg",
+    "images": [
+      "https://YOUR-ADMIN.vercel.app/products/ss-uv-chamber.jpg"
+    ],
+    "createdAt": 1792827557037
+  }
+]

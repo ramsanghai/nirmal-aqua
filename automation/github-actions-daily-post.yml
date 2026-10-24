@@ -1,0 +1,61 @@
+# Zero-cost fallback when you cannot keep Docker/n8n running.
+# Install: copy this file to  .github/workflows/daily-post.yml  in a GitHub repo that contains this
+# `automation/` folder AND a committed `automation/products.csv` (copy of sample/products.sample.csv with your products).
+# Add repo secrets (Settings > Secrets and variables > Actions): GROQ_API_KEY, HF_TOKEN, IMGBB_API_KEY,
+# IG_USER_ID, IG_ACCESS_TOKEN. Optional: WHATSAPP_API_KEY + WAHA_URL (only if WAHA is reachable from the internet).
+# The run commits the updated "posted" column back to products.csv, which also keeps the repo "active"
+# (GitHub pauses scheduled workflows after 60 days without repo activity).
+name: Daily Nirmal Aqua post
+
+on:
+  schedule:
+    - cron: "30 4 * * *"   # 04:30 UTC = 10:00 IST
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (no posting)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: automation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Post today's product
+        env:
+          BRAND_NAME: Nirmal Aqua
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          WHATSAPP_API_KEY: ${{ secrets.WHATSAPP_API_KEY }}
+          WAHA_URL: ${{ secrets.WAHA_URL }}
+          WAHA_SESSION: default
+        run: |
+          if [ "${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}" = "true" ]; then
+            node scripts/post-daily.mjs --dry-run
+          else
+            node scripts/post-daily.mjs
+          fi
+      - name: Commit "posted" flag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add products.csv
+          git diff --cached --quiet || (git commit -m "chore: mark product as posted" && git push)

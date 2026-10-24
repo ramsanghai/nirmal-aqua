@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function me() { return get(/databases/$(database)/documents/users/$(request.auth.uid)).data; }
+    function isAdmin() { return signedIn() && me().role == 'Admin'; }
+
+    match /users/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
+      // self-signup may only create Customer, or Dealer in pending state
+      allow create: if signedIn() && request.auth.uid == uid
+        && request.resource.data.role in ['Customer', 'Dealer']
+        && request.resource.data.referralCredits == 0
+        && (request.resource.data.role == 'Customer' || request.resource.data.dealerStatus == 'pending');
+      // users may edit their own profile but never role / dealerStatus / credits
+      allow update: if signedIn() && (
+        isAdmin() ||
+        (request.auth.uid == uid
+          && request.resource.data.role == resource.data.role
+          && request.resource.data.dealerStatus == resource.data.dealerStatus
+          && request.resource.data.referralCredits <= resource.data.referralCredits));
+    }
+    match /products/{id} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+    match /orders/{id} {
+      allow read: if signedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAdmin();
+    }
+    match /services/{id} {
+      allow read: if signedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if isAdmin();
+    }
+  }
+}

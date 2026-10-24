@@ -1,0 +1,634 @@
+{
+  "name": "Nirmal Aqua - Daily Product Post",
+  "nodes": [
+    {
+      "id": "n0",
+      "name": "Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        -200
+      ],
+      "parameters": {
+        "width": 760,
+        "height": 150,
+        "content": "## Nirmal Aqua daily post\nSchedule 10:00 IST -> Google Sheet -> Groq caption -> FLUX.1-schnell image (Pollinations fallback) -> ImgBB -> Instagram + WAHA Status -> mark row posted.\nSecrets come from environment variables ($env.*). Only the Google Sheets nodes need an n8n credential (Google Sheets OAuth2)."
+      }
+    },
+    {
+      "id": "n1",
+      "name": "Daily 10:00 IST",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "daysInterval": 1,
+              "triggerAtHour": 10,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "n2",
+      "name": "Read Products Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        220,
+        0
+      ],
+      "parameters": {
+        "resource": "sheet",
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $env.GOOGLE_SHEET_ID }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "products",
+          "mode": "name"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "n3",
+      "name": "Pick Next Product",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "language": "javaScript",
+        "jsCode": "// Pick the first product whose \"posted\" cell is empty and build the AI prompts.\nconst rows = $input.all().map(i => i.json);\nconst row = rows.find(r => String(r.id ?? '').trim() !== '' && !String(r.posted ?? '').trim());\nif (!row) {\n  // Nothing left to post: end the run quietly (add more rows or clear the \"posted\" column).\n  return [];\n}\n\nlet brand = 'Nirmal Aqua';\ntry { if ($env.BRAND_NAME) brand = $env.BRAND_NAME; } catch (e) { /* env access blocked: keep default */ }\n\nconst clean = v => String(v ?? '').replace(/\\s+/g, ' ').trim();\nconst name = clean(row.name);\nconst category = clean(row.category) || 'water purifier';\nconst description = clean(row.description);\nconst rawPrice = clean(row.price);\nconst price = /^[\\d.,\\s]+$/.test(rawPrice) ? '₹' + rawPrice : rawPrice;\n\nconst imagePrompt =\n  `Clean, realistic studio product photograph of a ${category} for home drinking water (${name}). ` +\n  (description ? description.slice(0, 140) + '. ' : '') +\n  'Seamless white background, soft diffused lighting, subtle floor reflection, centered, sharp focus, ' +\n  'photorealistic, square composition. No text, no letters, no logos, no watermark, no people.';\n\nconst groqSystem =\n  `You write Instagram captions for ${brand}, a friendly Indian water purifier e-commerce brand. ` +\n  'Reply with ONLY a JSON object: {\"caption\": string, \"hashtags\": string[]}.';\n\nconst groqUser =\n  `Product: ${name}\\nCategory: ${category}\\nPrice: ${price}\\nDescription: ${description}\\n\\n` +\n  'Rules for \"caption\": friendly, human tone; 2-3 short lines separated by \\\\n; mention the price exactly as given; ' +\n  'end with a clear call to action (e.g. order now / link in bio); at most 2 emojis in total; do NOT include hashtags in the caption. ' +\n  'Rules for \"hashtags\": 8 to 12 relevant hashtags, each starting with # and with no spaces, mixing brand, category and healthy-water topics.';\n\nreturn [{\n  json: { ...row, id: String(row.id).trim(), name, category, description, price, brand, imagePrompt, groqSystem, groqUser },\n}];\n"
+      }
+    },
+    {
+      "id": "n4",
+      "name": "Groq Caption",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        0
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.GROQ_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: $env.GROQ_MODEL || 'llama-3.3-70b-versatile', temperature: 0.8, max_tokens: 600, response_format: { type: 'json_object' }, messages: [ { role: 'system', content: $json.groqSystem }, { role: 'user', content: $json.groqUser } ] }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      }
+    },
+    {
+      "id": "n5",
+      "name": "Parse Caption",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        0
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "language": "javaScript",
+        "jsCode": "// Validate the Groq JSON and build the final Instagram caption.\nconst p = $('Pick Next Product').first().json;\nconst res = $input.first().json;\nconst content = res.choices && res.choices[0] && res.choices[0].message && res.choices[0].message.content;\nif (!content) throw new Error('Groq returned no content: ' + JSON.stringify(res).slice(0, 300));\n\nlet data;\ntry { data = JSON.parse(content); } catch (e) { throw new Error('Groq did not return valid JSON: ' + String(content).slice(0, 200)); }\n\nlet caption = String(data.caption || '').replace(/#\\w+/g, '').replace(/[ \\t]+\\n/g, '\\n').trim();\nif (!caption) throw new Error('Groq JSON has no caption');\n\n// Hard cap: at most 2 emojis.\nlet emojiCount = 0;\ncaption = caption.replace(/\\p{Extended_Pictographic}️?/gu, m => (++emojiCount <= 2 ? m : ''));\n\nconst rawTags = Array.isArray(data.hashtags) ? data.hashtags : String(data.hashtags || '').split(/\\s+/);\nconst brandTag = '#' + String(p.brand).replace(/[^A-Za-z0-9]/g, '');\nconst seen = new Set();\nconst tags = [brandTag, ...rawTags]\n  .map(t => String(t).trim().replace(/[^\\p{L}\\p{N}_#]/gu, ''))\n  .filter(t => t.replace('#', '').length > 0)\n  .map(t => (t.startsWith('#') ? t : '#' + t))\n  .filter(t => { const k = t.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; })\n  .slice(0, 12);\n\nlet finalCaption = caption + '\\n\\n' + tags.join(' ');\nif (finalCaption.length > 2200) finalCaption = finalCaption.slice(0, 2200); // Instagram limit\n\nreturn [{ json: { ...p, caption, hashtags: tags, finalCaption } }];\n"
+      }
+    },
+    {
+      "id": "n6",
+      "name": "HF Image (FLUX.1-schnell)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        0
+      ],
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.HF_IMAGE_URL || 'https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-schnell' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.HF_TOKEN }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inputs: $json.imagePrompt, parameters: { width: 1024, height: 1024, num_inference_steps: 4 } }) }}",
+        "options": {
+          "timeout": 120000,
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "data"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "n7",
+      "name": "HF OK?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1320,
+        0
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ !!($binary && $binary.data) && !$json.error }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "n8",
+      "name": "Pollinations Fallback",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1540,
+        160
+      ],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 5000,
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'https://image.pollinations.ai/prompt/' + encodeURIComponent($('Parse Caption').first().json.imagePrompt) + '?width=1080&height=1080&nologo=true&model=flux&seed=' + Math.floor(Math.random() * 1000000) }}",
+        "options": {
+          "timeout": 120000,
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "data"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "n9",
+      "name": "Normalize to JPEG",
+      "type": "n8n-nodes-base.editImage",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        0
+      ],
+      "parameters": {
+        "operation": "resize",
+        "dataPropertyName": "data",
+        "width": 1080,
+        "height": 1080,
+        "resizeOption": "ignoreAspectRatio",
+        "options": {
+          "format": "jpeg",
+          "quality": 90
+        }
+      }
+    },
+    {
+      "id": "n10",
+      "name": "Upload to ImgBB",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1980,
+        0
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 4000,
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.imgbb.com/1/upload",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "key",
+              "value": "={{ $env.IMGBB_API_KEY }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ 'nirmal-aqua-' + $('Parse Caption').first().json.id + '-' + $now.toFormat('yyyyMMdd') }}"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "image",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 60000
+        }
+      }
+    },
+    {
+      "id": "n11",
+      "name": "IG Create Container",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        -120
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://graph.facebook.com/' + ($env.GRAPH_API_VERSION || 'v21.0') + '/' + $env.IG_USER_ID + '/media' }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ image_url: $('Upload to ImgBB').first().json.data.url, caption: $('Parse Caption').first().json.finalCaption, access_token: $env.IG_ACCESS_TOKEN }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      }
+    },
+    {
+      "id": "n12",
+      "name": "Wait 10s",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2420,
+        -120
+      ],
+      "parameters": {
+        "resume": "timeInterval",
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "webhookId": "a3f1c2d4-5b6e-4f70-8a91-b2c3d4e5f607"
+    },
+    {
+      "id": "n13",
+      "name": "IG Publish",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2640,
+        -120
+      ],
+      "retryOnFail": true,
+      "maxTries": 4,
+      "waitBetweenTries": 6000,
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://graph.facebook.com/' + ($env.GRAPH_API_VERSION || 'v21.0') + '/' + $env.IG_USER_ID + '/media_publish' }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ creation_id: $('IG Create Container').first().json.id, access_token: $env.IG_ACCESS_TOKEN }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      }
+    },
+    {
+      "id": "n14",
+      "name": "WAHA Status Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        140
+      ],
+      "onError": "continueRegularOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'http://waha:3000/api/' + ($env.WAHA_SESSION || 'default') + '/status/image' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Api-Key",
+              "value": "={{ $env.WHATSAPP_API_KEY }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ file: { mimetype: 'image/jpeg', url: $('Upload to ImgBB').first().json.data.url, filename: 'product.jpg' }, caption: $('Parse Caption').first().json.caption }) }}",
+        "options": {
+          "timeout": 90000
+        }
+      }
+    },
+    {
+      "id": "n15",
+      "name": "Merge Results",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2860,
+        0
+      ],
+      "parameters": {
+        "mode": "append"
+      }
+    },
+    {
+      "id": "n16",
+      "name": "Mark Row Posted",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3080,
+        0
+      ],
+      "executeOnce": true,
+      "parameters": {
+        "resource": "sheet",
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $env.GOOGLE_SHEET_ID }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "products",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Pick Next Product').first().json.id }}",
+            "posted": "={{ $now.toFormat('yyyy-MM-dd') }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "posted",
+              "displayName": "posted",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      }
+    }
+  ],
+  "connections": {
+    "Daily 10:00 IST": {
+      "main": [
+        [
+          {
+            "node": "Read Products Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Products Sheet": {
+      "main": [
+        [
+          {
+            "node": "Pick Next Product",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pick Next Product": {
+      "main": [
+        [
+          {
+            "node": "Groq Caption",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Caption": {
+      "main": [
+        [
+          {
+            "node": "Parse Caption",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Caption": {
+      "main": [
+        [
+          {
+            "node": "HF Image (FLUX.1-schnell)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HF Image (FLUX.1-schnell)": {
+      "main": [
+        [
+          {
+            "node": "HF OK?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HF OK?": {
+      "main": [
+        [
+          {
+            "node": "Normalize to JPEG",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Pollinations Fallback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pollinations Fallback": {
+      "main": [
+        [
+          {
+            "node": "Normalize to JPEG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize to JPEG": {
+      "main": [
+        [
+          {
+            "node": "Upload to ImgBB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to ImgBB": {
+      "main": [
+        [
+          {
+            "node": "IG Create Container",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "WAHA Status Image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IG Create Container": {
+      "main": [
+        [
+          {
+            "node": "Wait 10s",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 10s": {
+      "main": [
+        [
+          {
+            "node": "IG Publish",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IG Publish": {
+      "main": [
+        [
+          {
+            "node": "Merge Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WAHA Status Image": {
+      "main": [
+        [
+          {
+            "node": "Merge Results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Results": {
+      "main": [
+        [
+          {
+            "node": "Mark Row Posted",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata"
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
