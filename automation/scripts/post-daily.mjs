@@ -255,7 +255,7 @@ async function main() {
   if (!NO_AI) { imageUrl = await uploadImgbb(buf, p); log(`ImgBB: ${imageUrl}`); }
 
   const [ig, wa] = await Promise.allSettled([
-    postInstagram(imageUrl, cap.finalCaption),
+    env('IG_USER_ID') && env('IG_ACCESS_TOKEN') ? postInstagram(imageUrl, cap.finalCaption) : Promise.resolve('SKIPPED (no Instagram credentials yet)'),
     env('WHATSAPP_API_KEY') && env('WAHA_DISABLED') !== '1' ? postWaha(imageUrl, cap.caption) : Promise.reject(new Error('skipped (no WHATSAPP_API_KEY)')),
   ]);
   log(ig.status === 'fulfilled' ? `Instagram published: media id ${ig.value}` : `Instagram FAILED: ${ig.reason.message}`);
