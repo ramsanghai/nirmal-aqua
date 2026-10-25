@@ -135,7 +135,7 @@ const json = (url, body, headers = {}, label, timeout) =>
 // ---------- AI ----------
 async function groqCaption(p) {
   const data = await json('https://api.groq.com/openai/v1/chat/completions', {
-    model: env('GROQ_MODEL', 'llama-3.3-70b-versatile'), temperature: 0.8, max_tokens: 600,
+    model: env('GROQ_MODEL', 'llama-3.3-70b-versatile'), temperature: 0.8, max_tokens: 4000, ...(/gpt-oss/.test(env('GROQ_MODEL')) ? { reasoning_effort: 'low' } : {}),
     response_format: { type: 'json_object' },
     messages: [{ role: 'system', content: p.groqSystem }, { role: 'user', content: p.groqUser }],
   }, { Authorization: `Bearer ${need('GROQ_API_KEY')}` }, 'Groq');
@@ -186,7 +186,7 @@ async function uploadImgbb(buf, p) {
 // ---------- Instagram + WAHA ----------
 async function postInstagram(imageUrl, caption) {
   const v = env('GRAPH_API_VERSION', 'v21.0'), uid = need('IG_USER_ID'), token = need('IG_ACCESS_TOKEN');
-  const base = `https://graph.facebook.com/${v}`;
+  const base = `${env('IG_API_BASE', 'https://graph.facebook.com')}/${v}`;
   const c = await json(`${base}/${uid}/media`, { image_url: imageUrl, caption, access_token: token }, {}, 'IG create container');
   log(`  container ${c.id}; waiting 10s...`);
   await sleep(10000);
