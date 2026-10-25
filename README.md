@@ -1,11 +1,11 @@
 # Nirmal Aqua — Califnco Round 1 submission
 
-E-commerce water purifier platform: **Android app** (Customer + Dealer) · **Admin panel on Vercel** · **daily AI Instagram + WhatsApp automation**. Everything runs on free tiers (₹0).
+E-commerce water purifier platform: **Android app** (Customer + Dealer) · **Admin panel on Vercel** · **daily AI caption + image automation (GitHub Actions)**. Everything runs on free tiers (₹0).
 
 ```
 mobile/       Expo (React Native, TypeScript) Android app, Firebase Auth + Firestore + FCM
 admin/        Next.js admin panel + /api/notify (FCM, EmailJS, TextBee) → deploy on Vercel
-automation/   n8n workflow + WAHA docker-compose + Node fallback script (Instagram + WhatsApp Status)
+automation/   daily post pipeline: GitHub Actions cron + Node script (Groq, Hugging Face, ImgBB, Instagram Graph API); n8n + WAHA files included as an alternative
 seed/         52-product catalogue, generated product images, Firestore seed script
 firestore.rules   security rules (roles enforced server-side)
 SPEC.md       the shared Firestore / API contract
@@ -23,8 +23,8 @@ SPEC.md       the shared Firestore / API contract
 | Razorpay test mode | `mobile/src/components/Razorpay.tsx` (Standard Checkout in a WebView, `rzp_test_` key) |
 | Free maps / address | Leaflet + OpenStreetMap tiles + Nominatim search/reverse geocode (`MapPicker.tsx`) |
 | Email + SMS | server-side in `/api/notify`: EmailJS REST + TextBee REST |
-| AI automation (daily, image + caption + hashtags, no manual work) | `automation/` |
-| Bonus: WhatsApp Status via WAHA | `automation/docker-compose.yml` + workflow node |
+| AI automation (daily, image + caption + hashtags, no manual work) | `automation/scripts/post-daily.mjs` + `.github/workflows/daily-post.yml` (runs daily 10:00 IST; verified live up to ImgBB upload) |
+| Bonus: WhatsApp Status via WAHA | not run live; WAHA compose + n8n workflow included in `automation/` |
 | Bonus: polish | dark mode (Auto/Light/Dark), animations, pinch-zoom lightbox, referral system (₹100 each, credited server-side) |
 
 ## Setup (about 45 minutes, all free)
@@ -46,6 +46,8 @@ Test card/UPI: Razorpay test mode accepts card `4111 1111 1111 1111` (any future
 - **Notifications:** FCM push, EmailJS email and TextBee SMS are all sent from one Vercel API route so no secrets live in the app.
 - **Automation:** n8n (Docker) primary; `automation/scripts/post-daily.mjs` + GitHub Actions cron is a zero-cost fallback; Pollinations is the image fallback if the Hugging Face free tier is exhausted.
 
-## Honest status
+## Status
 
-Code compiles: mobile `tsc` clean and `expo export --platform android` bundles; admin `tsc` passes and `next build` passes (with Google Fonts stubbed, because the sandbox blocks them); workflow JSON validated; automation script dry-run passes. **Not run against live services** (no Firebase / Vercel / Meta / WAHA / Razorpay accounts in the build environment), and the app was not run on a device — expect to spend a few minutes on first-run key fixes. FCM push only works in a real APK (not Expo Go) with `google-services.json`.
+**Verified live:** Firebase Auth and Firestore, 52 seeded products with matching images, the Android APK (sign-up, cart, orders, service booking), the admin panel on Vercel (orders, status changes, dealer approvals), and FCM push notifications. The daily automation runs on GitHub Actions (Groq caption, Hugging Face image with a free fallback, ImgBB hosting).
+
+**Not connected:** Instagram live publishing (the Meta app is in development mode; the Instagram step is implemented and skips cleanly when no token is set), the WhatsApp Status bonus, and EmailJS/TextBee (optional; skipped when keys are missing). Razorpay runs in test mode only. FCM push needs the real APK (not Expo Go).
